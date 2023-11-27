@@ -1,5 +1,5 @@
 <template>
-  <div style="text-align: center">
+  <div>
     <h1>Login</h1>
     <input id="email" type="email" placeholder="Email" v-model="email"> <br />
     <input id="password" type="password" placeholder="Password" v-model="password"> <br />
