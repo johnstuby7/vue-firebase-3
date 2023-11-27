@@ -4,9 +4,6 @@
       Register Today!
     </button>
 
-    <!-- <input type="button" class="btn" @click="showModal" v-model="signup"
-      value="{{ signup === 'true' ? 'Login' : 'Register' }}" /> -->
-
     <Modal v-show="isModalVisible" @close="closeModal" />
   </div>
 </template>

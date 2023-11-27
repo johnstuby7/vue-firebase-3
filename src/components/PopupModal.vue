@@ -21,7 +21,7 @@
             <div class="center">
               <input id="email" type="email" placeholder="Email" v-model="email"> <br /> <br />
               <input id="password" type="password" placeholder="Password" v-model="password"> <br /> <br />
-              <button @click="login">Register</button>
+              <button @click="register">Register</button>
               <p>Already have a account? <router-link style="color: blue" to="/signup">Login</router-link></p>
             </div>
           </slot>
@@ -32,14 +32,31 @@
 </template>
 
 <script>
-
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
 
 export default {
-  name: 'Popup-Modal',
+  name: 'PopupModal',
+  data() {
+    return {
+      email: "",
+      password: "",
+    }
+  },
   methods: {
     close() {
       this.$emit('close');
     },
+    register() {
+      firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
+        (user) => {
+          console.log(user);
+        },
+        (err) => {
+          alert(err)
+        }
+      );
+    }
   },
 };
 </script>
